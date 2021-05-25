@@ -1,5 +1,4 @@
-import react, { useState, useEffect  } from 'react'
-import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import axios from 'axios'
 import { TextField } from '@material-ui/core';
 import Footer from '../components/Footer';
@@ -28,7 +27,7 @@ const CreateLogIn = () => {
       
       try {
         const api = async () => {
-          const { data } = await axios.post('https://chabad-bayek.herokuapp.com/auth/local/register', {
+          await axios.post('https://chabad-bayek.herokuapp.com/auth/local/register', {
             firstName: registerData.firstName,
             lastName: registerData.lastName,
             username: registerData.username,

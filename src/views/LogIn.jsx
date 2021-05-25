@@ -1,9 +1,9 @@
-import react, { useState } from 'react'
+import { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
 import { TextField } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
 import Footer from '../components/Footer';
+
 
 const LogIn = () => {
   const history = useHistory()
@@ -26,7 +26,7 @@ const LogIn = () => {
       const { data } = await axios.post('https://chabad-bayek.herokuapp.com/auth/local', {
             identifier: loginData.username,
             password: loginData.password
-      }) 
+      })
       localStorage.setItem('token', data.jwt)
       setLoginData({
         username: '',
@@ -35,11 +35,11 @@ const LogIn = () => {
       history.replace('/')
       console.log("loginData", data)
     } catch (error) {
+      alert('it seams that there was a problem try again soon')
         console.log(error, 'error');
       }
   }
-  const star = "*"
-
+  
   return (
     <>
 <section className="flex flex-col md:flex-row h-screen items-center mt-5">
@@ -70,9 +70,9 @@ const LogIn = () => {
               variant="outlined"
               />
             </div>
-            <p></p>
+            
         <div className="text-right mt-2">
-          <a href="#" className="text-sm font-semibold text-gray-700 hover:text-blue-700 focus:text-blue-700"><Link to="/ForgotPassword" className="text-blue-500 hover:text-blue-700 font-semibold">Forgot Password?</Link></a>
+            <Link to="/ForgotPassword" className="text-blue-500 hover:text-blue-700 font-semibold">Forgot Password?</Link>
         </div>
         <button onClick={handleSubmit} type="submit" className="w-full block bg-indigo-500 hover:bg-indigo-400 focus:bg-indigo-400 text-white font-semibold rounded-lg px-4 py-3 mt-6">Log In
         </button>
