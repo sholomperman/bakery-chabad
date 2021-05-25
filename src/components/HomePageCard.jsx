@@ -29,7 +29,7 @@ const HomePageCard = ({className}) => {
                             <div className="flex justify-center mt-5">
                                 <div className="shadow-2xl bg-white max-w-xs rounded-lg font-mono">
                                 <div className="rounded-2xl rounded-lg shadow-2xl m-4 mb-1 max-h-52">
-                                            <img className="w-auto rounded-lg" src={`http://localhost:1337${item.image.url}`} alt={`Pic of
+                                            <img className="w-auto rounded-lg" src={`https://chabad-bayek.herokuapp.com${item.image.url}`} alt={`Pic of
                                             ${item.productName}`} />
                                     </div>
                                     <div className="p-8 flex justify-center">
