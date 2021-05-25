@@ -2,6 +2,7 @@ import react, { useState, useEffect  } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { TextField } from '@material-ui/core';
+import Footer from '../components/Footer';
 
 
 
@@ -27,7 +28,7 @@ const CreateLogIn = () => {
       
       try {
         const api = async () => {
-          const { data } = await axios.post('http://localhost:1337/auth/local/register', {
+          const { data } = await axios.post('https://chabad-bayek.herokuapp.com/auth/local/register', {
             firstName: registerData.firstName,
             lastName: registerData.lastName,
             username: registerData.username,
@@ -50,7 +51,8 @@ const CreateLogIn = () => {
 
     console.log('registerData', registerData)
 
-    return (
+  return (
+      <>
     <section className="flex flex-col md:flex-row h-screen items-center">
       <div className="bg-white md:max-w-md lg:max-w-full md:mx-auto md:mx-0 md:w-1/3 px-6 lg:px-26 xl:px-12 flex items-center justify-center">
         <div className="w-full h-100">
@@ -66,7 +68,7 @@ const CreateLogIn = () => {
               value={registerData.firstName}
               onChange={handleChange}
               id="firstName"
-              label="First Name"
+              label="*First Name"
               variant="outlined"
                 />
               </div>
@@ -78,8 +80,8 @@ const CreateLogIn = () => {
               placeholder="Last Name"
               value={registerData.lastName}
               onChange={handleChange}
-              id="lastName"
-              label="Last Name"
+              id="*lastName"
+              label="*Last Name"
               variant="outlined"
                 />
               </div>
@@ -92,7 +94,7 @@ const CreateLogIn = () => {
               value={registerData.username}
               onChange={handleChange}
               id="username"
-              label="Username"
+              label="*Username"
               variant="outlined"
                 />
             </div>  
@@ -105,7 +107,7 @@ const CreateLogIn = () => {
               value={registerData.email}
               onChange={handleChange}
               id="email"
-              label="Email"
+              label="*Email"
               variant="outlined"
                 />
             </div>
@@ -118,7 +120,7 @@ const CreateLogIn = () => {
               value={registerData.password}
               onChange={handleChange}
               id="password"
-              label="Password"
+              label="*Password"
               variant="outlined"
                 />
             </div>
@@ -129,7 +131,9 @@ const CreateLogIn = () => {
           <hr className="my-6 border-gray-300 w-full"/>
         </div>
       </div>
-    </section>
+      </section>
+      <Footer />
+      </>
     )
 }
 
