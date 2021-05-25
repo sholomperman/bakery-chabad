@@ -8,7 +8,7 @@ const HomePageCard = ({className}) => {
     useEffect(() => {
         try {
         const api = async () => {
-            const { data } = await axios.get('http://localhost:1337/products');
+            const { data } = await axios.get('https://chabad-bayek.herokuapp.com/products');
             setProduct(data);
         };
         api();

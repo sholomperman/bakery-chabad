@@ -2,6 +2,8 @@ import react, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
 import { TextField } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import Footer from '../components/Footer';
 
 const LogIn = () => {
   const history = useHistory()
@@ -21,7 +23,7 @@ const LogIn = () => {
     e.preventDefault();
       
     try {
-      const { data } = await axios.post('http://localhost:1337/auth/local', {
+      const { data } = await axios.post('https://chabad-bayek.herokuapp.com/auth/local', {
             identifier: loginData.username,
             password: loginData.password
       }) 
@@ -36,9 +38,10 @@ const LogIn = () => {
         console.log(error, 'error');
       }
   }
-  const star = '*'
+  const star = "*"
 
   return (
+    <>
 <section className="flex flex-col md:flex-row h-screen items-center mt-5">
   <div className="bg-white w-full md:max-w-md lg:max-w-full md:mx-auto md:mx-0 md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
         flex items-center justify-center">
@@ -49,21 +52,21 @@ const LogIn = () => {
               <TextField
               type="username"
               name="username"
-              placeholder={`${star}username`}
+              placeholder='Username'
               value={loginData.username}
               onChange={handleChange}
               id="username"
-              label={`${star}username`}
+              label='*Username'
               variant="outlined"
               />
               <TextField
               type="password"
               name="password"
-              placeholder={`${star}Password`}
+              placeholder='Password'
               value={loginData.password}
               onChange={handleChange}
               id="password"
-              label={`${star}Password`}
+              label='*Password'
               variant="outlined"
               />
             </div>
@@ -78,8 +81,10 @@ const LogIn = () => {
             <p className="mt-8">Need an account? <Link to="/CreateLogIn" className="text-blue-500 hover:text-blue-700 font-semibold">Create an account</Link>
             </p>
     </div>
-  </div>
+      </div>
 </section>
+<Footer />
+    </>
 )}
 
 export default LogIn
