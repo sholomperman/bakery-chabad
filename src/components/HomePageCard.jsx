@@ -8,7 +8,7 @@ const HomePageCard = ({className}) => {
     useEffect(() => {
         try {
         const api = async () => {
-            const { data } = await axios.get('https://chabad-bayek.herokuapp.com/products');
+            const { data } = await axios.get('https://immense-headland-44939.herokuapp.com/products');
             setProduct(data);
         };
         api();
@@ -29,9 +29,9 @@ const HomePageCard = ({className}) => {
                             <div className="flex justify-center mt-5">
                                 <div className="shadow-2xl bg-white max-w-xs rounded-lg font-mono">
                                 <div className="rounded-2xl rounded-lg shadow-2xl m-4 mb-1 max-h-52">
-                                            <img className="w-auto rounded-lg" src={`https://chabad-bayek.herokuapp.com${item.image.url}`} alt={`Pic of
-                                            ${item.productName}`} />
-                                    </div>
+                                    <img className="w-auto rounded-lg" src={`https://immense-headland-44939.herokuapp.com/${item.image.url}`} alt={`Pic of
+                                    ${item.productName}`} />
+                                </div>
                                     <div className="p-8 flex justify-center">
                                     <h2 className="font-bold text-2xl mb-2 text-gray-800">{item.productName}</h2>
                                 </div>
