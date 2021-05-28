@@ -35,7 +35,6 @@ const LogIn = () => {
       history.replace('/')
       console.log("loginData", data)
     } catch (error) {
-      alert('it seams that there was a problem try again soon')
         console.log(error, 'error');
       }
   }
