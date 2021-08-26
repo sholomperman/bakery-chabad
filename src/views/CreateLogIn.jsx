@@ -27,7 +27,7 @@ const CreateLogIn = () => {
       
       try {
         const api = async () => {
-          await axios.post('https://chabad-bayek.herokuapp.com/auth/local/register', {
+          await axios.post('http://localhost:1337/auth/local/register', {
             firstName: registerData.firstName,
             lastName: registerData.lastName,
             username: registerData.username,
@@ -35,8 +35,8 @@ const CreateLogIn = () => {
             password: registerData.password
           });
           setRegisterData({
-            lastName: '',
             firstName: '',
+            lastName: '',
             email: '',
             username: '',
             password: ''
@@ -47,8 +47,6 @@ const CreateLogIn = () => {
         console.log(error);
       }
   }
-
-    console.log('registerData', registerData)
 
   return (
       <>
@@ -122,7 +120,7 @@ const CreateLogIn = () => {
               label="*Password"
               variant="outlined"
                 />
-            </div>
+                </div>
               </div>
             <button onClick={handleSubmit} type="submit" className="w-full block bg-indigo-500 hover:bg-indigo-400 focus:bg-indigo-400 text-white font-semibold rounded-lg px-4 py-3 mt-6">Sign Up
             </button>

@@ -5,16 +5,20 @@ const NavBar = () => {
 
 
     return (
-    <nav id="header" className="w-full z-30 top-10 py-1 bg-white shadow-lg border-b border-blue-400 mt-0">
+        <>
+        <nav id="header" className="w-full z-30 top-10 py-1 bg-white shadow-lg border-b border-blue-400 mt-0 ">
         <div className="md:flex flex justify-between md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
-                <ul className="md:flex items-center justify-between text-base text-blue-600 pt-4 md:pt-0">
-                        <li><Link className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2" to="/">Home</Link>
+            <svg className='ml-3 block md:hidden' xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill='blue' viewBox="0 0 16 16">
+            <path  fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+            </svg>
+                <ul className="hidden md:block md:flex items-center justify-between text-base text-blue-600 pt-4 md:pt-0">
+                        <li><Link className="hidden md:block inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2" to="/">Home</Link>
                         </li>
-                        <li><Link className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2" to="/about">About</Link>
+                        <li><Link className="hidden md:block inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2" to="/about">About</Link>
                         </li>
-                        <li><Link className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2" to="/users">Users</Link>
+                        <li><Link className="hidden md:block inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2" to="/users">Users</Link>
                         </li>
-                        <li><Link className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2" to="/LogIn">Log In</Link>
+                        <li><Link className="hidden md:block inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2" to="/LogIn">Log In</Link>
                         </li>
                 </ul>
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 mx-6" viewBox="0 0 20 20" >
@@ -24,6 +28,7 @@ const NavBar = () => {
                 </svg>
         </div>
     </nav>
+    </>
     )
 }
 

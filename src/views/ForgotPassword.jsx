@@ -57,7 +57,7 @@ const ForgotPassword = () => {
               />
                 </div>
                 <p className='text-xl flex justify-center mt-5'>You will get an email with instructions</p>
-                <p className='flex justify-center mt-5'>thank you for your support</p>
+                <p className='flex justify-center mt-5'>sorry for the inconvenience</p>
         <button onClick={handleSubmit} type="submit" className="w-full block bg-indigo-500 hover:bg-indigo-400 focus:bg-indigo-400 text-white font-semibold rounded-lg px-4 py-3 mt-14">Send
         </button>
       </form>

@@ -11,6 +11,8 @@ const LogIn = () => {
     username: '',
     password: ''
   })
+ 
+    const [ error, setError] = useState(false)
 
   const handleChange = e => {
     setLoginData({
@@ -23,7 +25,7 @@ const LogIn = () => {
     e.preventDefault();
       
     try {
-      const { data } = await axios.post('https://chabad-bayek.herokuapp.com/auth/local', {
+      const { data } = await axios.post('http://localhost:1337/auth/local', {
             identifier: loginData.username,
             password: loginData.password
       })
@@ -32,13 +34,15 @@ const LogIn = () => {
         username: '',
         password: ''
       })
-      history.replace('/')
-      console.log("loginData", data)
+      history.replace('/card')
+      console.log("jwt", data)
     } catch (error) {
+        setError(true)
         console.log(error, 'error');
       }
   }
-  
+
+
   return (
     <>
 <section className="flex flex-col md:flex-row h-screen items-center mt-5">
@@ -70,6 +74,7 @@ const LogIn = () => {
               />
             </div>
             
+            { error ? <h1 className='text-red-500 flex justify-center'>The username or password was incorrect</h1> : null }
         <div className="text-right mt-2">
             <Link to="/ForgotPassword" className="text-blue-500 hover:text-blue-700 font-semibold">Forgot Password?</Link>
         </div>
